@@ -9,11 +9,19 @@ namespace PrimerProyecto
             String valorEntrada = "";
             DateTime fecha;
             DateTime hora;
-            float temperatura;
-            float humedad;
+            float temperatura = 0;
+            float humedad = 0;
+            Boolean entradaOK;
 
-            Console.WriteLine("Ingresar informacion");
-            valorEntrada = Console.ReadLine();
+            do {
+                Console.WriteLine("Ingresar informacion");
+                valorEntrada = Console.ReadLine();
+                if (valorEntrada.Length == 25)
+                {
+                    entradaOK = true;
+                }
+                else { entradaOK = false; }
+            } while (!entradaOK);
 
             String fec = valorEntrada.Substring(0, 8);
             string[] formatFec = { "yyyyMMdd" };
@@ -31,12 +39,29 @@ namespace PrimerProyecto
             DateTime.TryParseExact(fec, formatFec, System.Globalization.CultureInfo.InvariantCulture,
                           System.Globalization.DateTimeStyles.None,
                           out fecha);
+
             DateTime.TryParseExact(horastring, formatHora, System.Globalization.CultureInfo.InvariantCulture,
                           System.Globalization.DateTimeStyles.None,
                           out hora);
-
-            temperatura = float.Parse(tempent + "," + tempdec);
-            humedad = float.Parse(hument + "," + humdec);
+           
+            try
+            {
+                temperatura = float.Parse(tempent + "," + tempdec);
+            }
+            catch (Exception error)
+            {
+            //    Console.WriteLine("temperatura ingresada incorrecta");
+                Console.Write(" Temperatura incorrecta: {0}", error.Message);
+            }
+            try
+            {
+                humedad = float.Parse(hument + "," + humdec);
+            }
+            catch (Exception error)
+            {
+                //    Console.WriteLine("temperatura ingresada incorrecta");
+                Console.Write(" Humedad incorrecta: {0}", error.Message);
+            }
 
             Console.WriteLine("Fecha del registro: {0}/{1}/{2} ", fecha.ToString("yyyy"), fecha.ToString("MM"), fecha.ToString("dd")) ;
             Console.WriteLine("Hora del registro: {0}hs {1}min {2}seg ", hora.ToString("HH"), hora.ToString("MM"), hora.ToString("ss"));
