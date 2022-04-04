@@ -31,16 +31,7 @@ namespace PrimerProyecto
                     String humdec = valorEntrada.Substring(19, 1);
                     String codigo = valorEntrada.Substring(20, 4);
                     String estado = valorEntrada.Substring(24, 1);
-
-
-                   /* DateTime.TryParseExact(fec, formatFec, System.Globalization.CultureInfo.InvariantCulture,
-                    //              System.Globalization.DateTimeStyles.None,
-                     //             out fecha);
-
-                    DateTime.TryParseExact(horastring, formatHora, System.Globalization.CultureInfo.InvariantCulture,
-                                  System.Globalization.DateTimeStyles.None,
-                                  out hora);
-                                  */
+                                                          
                     try
                     {
                         temperatura = float.Parse(tempent + "," + tempdec);
@@ -103,13 +94,7 @@ namespace PrimerProyecto
                     Console.WriteLine("Humedad: {0}% ", humedad);
                     Console.WriteLine("Codigo: “{0}” ", codigo);
                     Console.WriteLine(estadoString);
-
-                        
-                   /* if (estado == "0")
-                    {
-                        Console.WriteLine("Activo : NO");
-                    }
-                    else { Console.WriteLine("Activo : SI"); }*/
+                                           
                      }
                 }
                 else { entradaOK = false; }
