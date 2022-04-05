@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PrimerProyecto": {
+      "commandName": "Project",
+      "commandLineArgs": "shortformat"
+    }
+  }
+}
