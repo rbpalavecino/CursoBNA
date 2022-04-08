@@ -34,7 +34,7 @@ namespace PrimerProyecto
                     {   //! Sigue creciendo el anidamiento de estrucutras...
                         Console.WriteLine("Ingresar informacion");
                         valorEntrada = Console.ReadLine();
-                        if (valorEntrada.Length == 25)
+                        if (valorEntrada.Length == 25)      //! Parametrizarlo en una constante
                         {
                             entradaOK = true;
                             String fec = valorEntrada.Substring(0, 8);
